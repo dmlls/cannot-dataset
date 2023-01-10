@@ -1,5 +1,6 @@
-Data from the paper **"Not another Negation Benchmark: The NaN-NLI Test Suite
-for Sub-clausal Negation" (AACL-ICJNLP 2022)**.
+Data from the paper
+[**"Not another Negation Benchmark: The NaN-NLI Test Suite for Sub-clausal
+Negation"**](https://aclanthology.org/2022.aacl-main.65/).
 
 **Source**: https://github.com/joey234/nan-nli
 
