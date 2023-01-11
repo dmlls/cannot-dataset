@@ -10,8 +10,10 @@ Data from the
 1. Only sentence-pairs with label `"contradiction"` are kept.
 2. From all the columns, only `"Premise"` and `"Hypothesis"` are kept. These are
    renamed to `"sentence"` and `"negated"`, respectively.
-3. Entries in which the `"sentence"` and `"negated"` fields differ in 4 or more
-   words.
+3. Entries in which the `"sentence"` and `"negated"` fields have a Jaccard index
+   below `0.55`.
+4. Entries in which the `"sentence"` and `"negated"` fields differ in length in
+   4 or more words.
 
 <br>
 

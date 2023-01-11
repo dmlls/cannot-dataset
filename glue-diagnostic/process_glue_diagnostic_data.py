@@ -5,10 +5,12 @@
 import sys
 import argparse
 from pathlib import Path
+import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent))  # root dir
 from base_dataset_processor import BaseDatasetProcessor, DEFAULT_OUTPUT_DIR
+from utils.jaccard_index import jaccard_similarity
 
 arg_parser = argparse.ArgumentParser(
     description=("Process the GLUE Diagnostic Dataset for negations.")
@@ -37,11 +39,16 @@ class GlueDiagnosticDatasetProcessor(BaseDatasetProcessor):
     ) -> pd.DataFrame:
         glue = pd.read_csv(Path(dataset), sep="\t")
         glue = glue.loc[glue["Label"] == "contradiction"]
-        glue["Words Different"] = pd.Series.abs(
-            glue["Premise"].str.split().str.len()
-            - glue["Hypothesis"].str.split().str.len()
+
+        jaccard = np.frompyfunc(jaccard_similarity, 2, 1)
+        glue["Jaccard Index"] = jaccard(glue["Premise"], glue["Hypothesis"])
+        glue = glue.loc[glue["Jaccard Index"] >= 0.55]
+
+        length = np.frompyfunc(
+            lambda a, b: abs(len(a.split())-len(b.split())), 2, 1
         )
-        glue = glue.loc[glue["Words Different"] <= 3]
+        glue["Length Diff"] = length(glue["Premise"], glue["Hypothesis"])
+        glue = glue.loc[glue["Length Diff"] <= 3]
         glue = glue[["Premise", "Hypothesis"]]
         glue.rename(columns={"Premise": "sentence",
                              "Hypothesis": "negated"},
