@@ -1,5 +1,5 @@
 Data from the paper [**"Automated Fact-Checking of Claims from
-Wikipedia**](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.849.pdf).
+Wikipedia"**](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.849.pdf).
 
 **Source**: https://github.com/wikifactcheck-english/wikifactcheck-english
 
