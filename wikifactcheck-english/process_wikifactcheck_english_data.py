@@ -7,6 +7,7 @@ import json
 import argparse
 from pathlib import Path
 from typing import Dict, List
+
 import spacy
 import pandas as pd
 from tqdm import tqdm

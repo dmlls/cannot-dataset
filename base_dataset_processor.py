@@ -6,6 +6,7 @@ Specific dataset processors should inherit from this base processor.
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Optional
+
 import pandas as pd
 
 DEFAULT_OUTPUT_DIR = "processed/"
