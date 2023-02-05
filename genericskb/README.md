@@ -12,8 +12,12 @@ repo](https://drive.google.com/drive/folders/1vqfVXhJXJWuiiXbUa4rZjOgQoJvwZUoT).
 
 ### Cleaning process
 
-1. Keep only the `SENTENCE` column and rename it to `premise`.
-2. Keep only sentences that have at most 33 words.
+1. Keep only the `SENTENCE` column and rename it to `premise`. Clean up:
+   1. Replace "isa" with "is a".
+   2. Replace "have (part)" to "have", and "has (part)" to "has".
+   3. Remove instances with "has-part".
+2. Keep only the `SENTENCE` column and rename it to `premise`.
+3. Keep only sentences that have at most 33 words.
 4. For each sentence, run the Python "[negate](https://github.com/dmlls/negate)"
    module to get its negated version. Non-supported sentences are removed.
 
