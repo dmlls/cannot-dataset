@@ -3,6 +3,7 @@
 Specific dataset processors should inherit from this base processor.
 """
 
+import casefy
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Optional
@@ -52,7 +53,7 @@ class BaseDatasetProcessor(ABC):
         output_dir.mkdir(parents=True, exist_ok=True)
         print(f"♻️  Processing dataset '{self.dataset_name}'...")
         processed_dataset = self._process(dataset, output_dir, **kwargs)
-        filename = self.dataset_name.lower().replace("-", "_").replace(" ", "_")
+        filename = casefy.snakecase(self.dataset_name)
         processed_dataset.to_csv(output_dir/f"{filename}.tsv", sep="\t",
                                  encoding='utf-8', index=False)
         print(f"✅ Done! Output data written to '{output_dir}/'.")
