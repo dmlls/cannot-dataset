@@ -97,12 +97,12 @@ def main(args: argparse.ArgumentParser):
 
     lines: List[str] = []
     for dataset in tqdm(args.datasets):
-        for i, line in enumerate(dataset):
-            line = f"{line.strip()}\t1\n"  # add label
+        contains_label = int("label" in next(dataset))  # header
+        for line in dataset:
+            line = (line if contains_label
+                    else f"{line.strip()}\t1\n")  # add label
             if line not in lines:
                 lines.append(line)
-
-    lines = lines[1:]  # discard header
 
     if args.non_negated > 0:
         print("\n⚙  Generating paraphrased sentences...")
