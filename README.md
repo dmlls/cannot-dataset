@@ -69,15 +69,7 @@ Antonyms and Negation Using the New SemAntoNeg Benchmark_ (see
 
 <br>
 
-Additionally, for each of the negated samples, another pair of non-negated
-sentences has been added by paraphrasing them with the pre-trained model
-[`🤗tuner007/pegasus_paraphrase`](https://huggingface.co/tuner007/pegasus_paraphrase).
-
-Finally, the swapped version of each pair (premise ⇋ hypothesis) has also been
-included, and any duplicates have been removed.
-
-The contribution of each of these individual datasets to the final CANNOT
-dataset is:
+Once processed, the number of remaining samples in each of the datasets above are:
 
 | Dataset                                                                   | Samples    |
 |:--------------------------------------------------------------------------|-----------:|
@@ -86,10 +78,32 @@ dataset is:
 | Automated Fact-Checking of Claims from Wikipedia                          |   14,970   |
 | From Group to Individual Labels Using Deep Features                       |    2,110   |
 | It Is Not Easy To Detect Paraphrases                                      |    8,597   |
-| <p align="right"><b>Total</b></p>                                         | **25,949** |
+| <div align="right"><b>Total</b></div>                                     | **25,949** |
 
-_Note_: The numbers above include only the original queries present in the
-datasets.
+<br>
+
+Additionally, for each of the negated samples, another pair of non-negated
+sentences has been added by paraphrasing them with the pre-trained model
+[`🤗tuner007/pegasus_paraphrase`](https://huggingface.co/tuner007/pegasus_paraphrase).
+
+Finally, the swapped version of each pair (premise ⇋ hypothesis) has also been
+included, and any duplicates have been removed.
+
+With this, the number of premises/hypothesis in the CANNOT dataset that appear
+in the original datasets are:
+
+| <div align="left"><b>Dataset</b></div>                                                                   | <div align="center"><b>Sentences</b></div>             |
+|:--------------------------------------------------------------------------|----------------------:|
+| Not another Negation Benchmark                                            |         552 &nbsp;&nbsp;&nbsp; (0.36 %) |
+| GLUE Diagnostic Dataset                                                   |         586 &nbsp;&nbsp;&nbsp; (0.38 %) |
+| Automated Fact-Checking of Claims from Wikipedia                          |      89,728 &nbsp; (59.98 %) |
+| From Group to Individual Labels Using Deep Features                       |      12,626 &nbsp;&nbsp;&nbsp; (8.16 %) |
+| It Is Not Easy To Detect Paraphrases                                      |      17,198 &nbsp; (11.11 %) |
+| <div align="right"><b>Total</b></div>                                     | **120,690** &nbsp; (77.99 %) |
+
+The percentages above are in relation to the total number of premises and
+hypothesis in the CANNOT dataset. The remaining 22.01 % (34,062 sentences) are
+the novel premises/hypothesis added through paraphrase and rule-based negation.
 
 <br>
 
