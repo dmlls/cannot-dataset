@@ -138,4 +138,13 @@ The CANNOT dataset is released under [CC BY-SA
 <br><br>
 
 ## Citation
-tba
+```bibtex
+@misc{anschütz2023correct,
+      title={This is not correct! Negation-aware Evaluation of Language Generation Systems}, 
+      author={Miriam Anschütz and Diego Miguel Lozano and Georg Groh},
+      year={2023},
+      eprint={2307.13989},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
